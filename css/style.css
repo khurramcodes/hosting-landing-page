@@ -16,11 +16,19 @@ ul{
 }
 
 .container{
-    width: 1280px;
+    max-width: 1080px;
     margin: auto;
 }
 
 /* Navbar */
+
+.btn-mobileMenu i{
+    display: none;
+    font-size: 25px;
+    border: 2px solid rgba(5,100,234,1);
+    padding: 3px 6px;
+    border-radius: 5px;
+}
 
 nav{
     display: flex;
@@ -84,7 +92,6 @@ nav .btn-gradient-o::before{
 .description{
     font-size: 14px;
     color: #808080;
-    /* width: 70%; */
     line-height: 2;
     margin: 25px 0;
 }
@@ -114,9 +121,12 @@ section.header{
 }
 
 .header .content-wrapper{
-    width: 35%;
+    width: 50%;
 }
 
+.header .img-wrapper{
+    width: 50%;
+}
 
 /* Quality Section */
 
@@ -132,7 +142,7 @@ section.quality-testing{
 }
 
 .quality-testing .content-wrapper{
-    width: 40%;
+    width: 45%;
 }
 
 /* Technical Support */
@@ -145,7 +155,7 @@ section.tech-support{
 }
 
 .tech-support .content-wrapper{
-    width: 40%;    
+    width: 50%;    
 }
 
 /* Services */
@@ -206,6 +216,7 @@ section.pricing-plans h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
     padding: 30px 0 50px;
 }
 
@@ -233,10 +244,6 @@ ul.plan-features,
 .popular .plan-box-header .sub-title{
     color: #ffffff;
     
-}
-
-.plan-box:not(:last-of-type){
-    margin-right: 20px;
 }
 
 .plan-box .title{
@@ -442,10 +449,18 @@ section.register .container{
 
 /* Footer */
 footer .container{
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    margin-top: 100px;
-    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+footer .container .footer-logo{
+    width: 40%;
+}
+
+footer .container div:not(:first-child){
+    width: 20%;
 }
 
 .footer-logo img{
@@ -476,7 +491,191 @@ footer .container{
     font-size: 12px;
 }
 
+.social-links div{
+    display: flex;
+    justify-content: space-between;
+}
+
 .social-links div img{
     width: 25px;
     margin-right: 5px;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 968px) {
+    
+    .container{
+        padding: 1%;
+    }
+    
+    nav{
+        width: 80%;
+        margin: 50px auto;
+    }
+
+    nav img[alt="logo"] {
+        width: 100px;
+    }
+
+    section.header{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 100px;
+    }
+
+    section.quality-testing{
+        flex-direction: column-reverse;
+        row-gap: 100px;
+    }
+
+    section.tech-support{
+        flex-direction: column;
+        row-gap: 100px;
+    }
+
+    section.services .content-wrapper{
+        flex-direction: column;
+    }
+
+    section.services .content-wrapper .heading,
+    section.services .content-wrapper .description{
+        width: 100%;
+        text-align: center;
+    }
+
+    .all-services{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header .content-wrapper, .header .img-wrapper,
+    .quality-testing .content-wrapper, .quality-testing .img-wrapper,
+    .tech-support .content-wrapper, .tech-support .img-wrapper,
+    .register .register-content{
+        width: 70%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .register .register-content p{
+        padding: 0;
+        margin: 25px 0;
+    }
+
+    section.register .container{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navigation, .btn-gradient-o{
+        display: none;
+    }
+
+    .btn-mobileMenu i{
+        display: block;
+    }
+
+    section.header,
+    section.quality-testing,
+    section.tech-support,
+    section.services,
+    section.testimonials{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    section.pricing-plans h2 {
+        font-size: 35px;
+    }
+
+    .plans{
+        flex-wrap: wrap;
+    }
+
+    .header .content-wrapper, .header .img-wrapper,
+    .quality-testing .content-wrapper, .quality-testing .img-wrapper,
+    .tech-support .content-wrapper, .tech-support .img-wrapper,
+    .register .register-content{
+        width: 100%;
+    }
+
+    .section-img{
+        height: 250px;
+    }
+
+    .heading{
+        font-size: 35px;
+    }
+
+    .description{
+        font-size: 12px;
+        padding: 0 40px!important;
+    }
+
+    .all-services{
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials .sec-header h2{
+        font-size: 35px;
+    }
+
+    .testimonials .sec-header p{
+        width: 80%;
+        font-size: 12px;
+    }
+
+    .testimonial-cards{
+        grid-template-columns: 1fr;
+    }
+
+    .register .register-content h2{
+        font-size: 35px;
+    }
+
+    footer .container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    footer .container .footer-logo,
+    footer .container div:not(:first-child){
+        width: 100%;
+    }
+
+    .footer-logo p{
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .heading{
+        font-size: 30px;
+    }
+
+    .description{
+        font-size: 12px;
+        padding: 0 30px!important;
+    }
+
+    .testimonials .sec-header h2{
+        font-size: 30px;
+    }
+
+    .testimonials .sec-header p{
+        width: 80%;
+        font-size: 12px;
+    }
+
+    .register .register-content h2{
+        font-size: 30px;
+    }
+
+    .section-img{
+        height: 210px;
+    }
 }
